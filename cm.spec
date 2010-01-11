@@ -15,6 +15,7 @@ BuildRequires:	libmpfr-devel
 BuildRequires:	libmpc-devel
 BuildRequires:	libmpfrcx-devel
 BuildRequires:	ntl-devel
+BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Patch0:		cm-0.1-build.patch
