@@ -59,7 +59,7 @@ Development headers and libraries for CM.
 %patch0 -p1
 
 %build
-autoreconf
+autoreconf -ifs
 %configure			\
 	--enable-shared		\
 	--disable-static
