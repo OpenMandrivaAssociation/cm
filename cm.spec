@@ -5,7 +5,7 @@
 Summary:	Ring class fields of imaginary quadratic number fields and of elliptic curves
 Name:		cm
 Version:	0.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.http://www.multiprecision.org/%{name}
