@@ -5,10 +5,10 @@
 Summary:	Ring class fields of imaginary quadratic number fields and of elliptic curves
 Name:		cm
 Version:	0.1
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPLv2+
 Group:		System/Libraries
-URL:		http://www.http://www.multiprecision.org/%{name}
+URL:		http://www.multiprecision.org/%{name}
 Source0:	http://www.multiprecision.org/cm/download/%{name}-%{version}.tar.gz
 BuildRequires:	libgmp-devel
 BuildRequires:	libmpfr-devel
@@ -19,6 +19,7 @@ BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Patch0:		cm-0.1-build.patch
+Patch1:		cm-0.1-mpfrx-0.3.patch
 
 %description
 The CM software implements the construction of ring class fields of
@@ -56,18 +57,19 @@ Development headers and libraries for CM.
 
 %prep
 %setup -q
-
 %patch0 -p1
+%patch1 -p1
 
 %build
-autoreconf -ifs
-%configure			\
+autoreconf -if
+%configure2_5x			\
 	--enable-shared		\
 	--disable-static
 
 %make
 
 %install
+rm -rf %buildroot
 %makeinstall_std
 mkdir -p %{buildroot}%{_datadir}/%{name}
 mv -f %{buildroot}%{_datadir}/{af,df} %{buildroot}%{_datadir}/%{name}
