@@ -5,7 +5,7 @@
 Summary:	Ring class fields of imaginary quadratic number fields and of elliptic curves
 Name:		cm
 Version:	0.1
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.multiprecision.org/%{name}
@@ -71,6 +71,7 @@ autoreconf -if
 %install
 rm -rf %buildroot
 %makeinstall_std
+rm %{buildroot}%{_libdir}/lib*.la 
 mkdir -p %{buildroot}%{_datadir}/%{name}
 mv -f %{buildroot}%{_datadir}/{af,df} %{buildroot}%{_datadir}/%{name}
 
@@ -100,5 +101,4 @@ make check
 %defattr(-,root,root)
 %{_includedir}/*.h
 %{_infodir}/cm.info*
-%{_libdir}/lib*.la 
 %{_libdir}/lib*.so
