@@ -5,7 +5,7 @@
 Summary:	Ring class fields of imaginary quadratic number fields and of elliptic curves
 Name:		cm
 Version:	0.1
-Release:	%mkrel 5
+Release:	6
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.multiprecision.org/%{name}
@@ -16,7 +16,6 @@ BuildRequires:	libmpc-devel
 BuildRequires:	libmpfrcx-devel
 BuildRequires:	ntl-devel
 BuildRequires:	zlib-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 Patch0:		cm-0.1-build.patch
 Patch1:		cm-0.1-mpfrx-0.3.patch
@@ -46,8 +45,6 @@ Mathematics of Computation 78 (266), 2009, pp. 1089-1107.
 %package	-n %{libname_devel}
 Summary:	Development headers and libraries for CM
 Group:		Development/C
-Requires(post):	info-install
-Requires(preun):info-install
 Requires:	%{libname} = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
@@ -69,9 +66,8 @@ autoreconf -if
 %make
 
 %install
-rm -rf %buildroot
+rm -rf %{buildroot}
 %makeinstall_std
-rm %{buildroot}%{_libdir}/lib*.la 
 mkdir -p %{buildroot}%{_datadir}/%{name}
 mv -f %{buildroot}%{_datadir}/{af,df} %{buildroot}%{_datadir}/%{name}
 
@@ -81,24 +77,18 @@ install -m 0644 AUTHORS NEWS README %{buildroot}%{_docdir}/%{name}
 %check
 make check
 
-%clean
-%{__rm} -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{_bindir}/classpol
 %{_bindir}/cm
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
 
-%files		-n %{libname}
-%defattr(-,root,root)
+%files -n %{libname}
 %doc %dir %{_docdir}/%{name}
 %doc %{_docdir}/%{name}/*
 %{_libdir}/lib*.so.%{libmajor}*
 
-%files		-n %{libname_devel}
-%defattr(-,root,root)
+%files -n %{libname_devel}
 %{_includedir}/*.h
 %{_infodir}/cm.info*
 %{_libdir}/lib*.so
