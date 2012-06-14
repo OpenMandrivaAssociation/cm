@@ -4,8 +4,8 @@
 
 Summary:	Ring class fields of imaginary quadratic number fields and of elliptic curves
 Name:		cm
-Version:	0.1
-Release:	6
+Version:	0.2
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.multiprecision.org/%{name}
@@ -14,11 +14,11 @@ BuildRequires:	libgmp-devel
 BuildRequires:	libmpfr-devel
 BuildRequires:	libmpc-devel
 BuildRequires:	libmpfrcx-devel
+BuildRequires:	libpari-devel >= 2.5.0
 BuildRequires:	ntl-devel
 BuildRequires:	zlib-devel
 
 Patch0:		cm-0.1-build.patch
-Patch1:		cm-0.1-mpfrx-0.3.patch
 
 %description
 The CM software implements the construction of ring class fields of
@@ -55,7 +55,6 @@ Development headers and libraries for CM.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 autoreconf -if
