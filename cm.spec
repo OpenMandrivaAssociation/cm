@@ -18,8 +18,6 @@ BuildRequires:	libpari-devel >= 2.5.0
 BuildRequires:	ntl-devel
 BuildRequires:	zlib-devel
 
-Patch0:		cm-0.1-build.patch
-
 %description
 The CM software implements the construction of ring class fields of
 imaginary quadratic number fields and of elliptic curves with complex
@@ -54,7 +52,6 @@ Development headers and libraries for CM.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 autoreconf -if
