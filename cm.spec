@@ -10,6 +10,7 @@ License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.multiprecision.org/%{name}
 Source0:	http://www.multiprecision.org/cm/download/%{name}-%{version}.tar.gz
+Patch0:		cm-0.2-mpfrx-0.3.patch
 BuildRequires:	libgmp-devel
 BuildRequires:	libmpfr-devel
 BuildRequires:	libmpc-devel
@@ -52,6 +53,7 @@ Development headers and libraries for CM.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 autoreconf -if
