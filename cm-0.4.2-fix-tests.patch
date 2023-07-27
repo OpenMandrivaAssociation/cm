@@ -1,0 +1,22 @@
+diff -up cm-0.4.2/tests/tecpp.c.omv~ cm-0.4.2/tests/tecpp.c
+--- cm-0.4.2/tests/tecpp.c.omv~	2023-07-28 00:36:34.963121806 +0200
++++ cm-0.4.2/tests/tecpp.c	2023-07-28 00:36:42.368287394 +0200
+@@ -21,6 +21,7 @@ with CM; see the file COPYING. If not, w
+ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+ 
++#include <stdio.h>
+ #include "cm.h"
+ 
+ /*****************************************************************************/
+diff -up cm-0.4.2/tests/ttwist.c.omv~ cm-0.4.2/tests/ttwist.c
+--- cm-0.4.2/tests/ttwist.c.omv~	2023-07-28 00:34:40.193555201 +0200
++++ cm-0.4.2/tests/ttwist.c	2023-07-28 00:36:25.689914442 +0200
+@@ -21,6 +21,7 @@ with CM; see the file COPYING. If not, w
+ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+ 
++#include <stdio.h>
+ #include "cm.h"
+ 
+ /*****************************************************************************/

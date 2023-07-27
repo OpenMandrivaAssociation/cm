@@ -1,20 +1,21 @@
-%define libmajor	0
-%define libname		%mklibname %{name} %{libmajor}
-%define devname	%mklibname %{name} -d
+%define libmajor	1
+%define libname		%mklibname %{name}
+%define devname		%mklibname %{name} -d
 
 Summary:	Ring class fields of imaginary quadratic number fields and of elliptic curves
 Name:		cm
-Version:	0.2
-Release:	2
+Version:	0.4.2
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
-URL:		http://www.multiprecision.org/%{name}
-Source0:	http://www.multiprecision.org/cm/download/%{name}-%{version}.tar.gz
-Patch0:		cm-0.2-link.patch
-BuildRequires:	gmp-devel >= 4.3.2
-BuildRequires:	mpfr-devel >= 2.4.2
+URL:		https://www.multiprecision.org/%{name}
+Source0:	https://www.multiprecision.org/downloads/%{name}-%{version}.tar.gz
+#Patch0:		cm-0.2-link.patch
+Patch1:		cm-0.4.2-fix-tests.patch
+BuildRequires:	pkgconfig(gmp) >= 4.3.2
+BuildRequires:	pkgconfig(mpfr) >= 2.4.2
 BuildRequires:	libmpc-devel >= 0.8.2
-BuildRequires:	libmpfrcx-devel >= 0.4
+BuildRequires:	mpfrcx-devel >= 0.4
 BuildRequires:	libpari-devel >= 2.5.1
 BuildRequires:	ntl-devel
 BuildRequires:	zlib-devel
@@ -52,21 +53,15 @@ Provides:	%{name}-devel = %{version}-%{release}
 Development headers and libraries for CM.
 
 %prep
-%setup -q
-%patch0 -p0
+%autosetup -p1
+autoreconf -if
+%configure
 
 %build
-autoreconf -if
-%configure2_5x			\
-	--enable-shared		\
-	--disable-static
-
-%make
+%make_build
 
 %install
-%makeinstall_std
-mkdir -p %{buildroot}%{_datadir}/%{name}
-mv -f %{buildroot}%{_datadir}/{af,df} %{buildroot}%{_datadir}/%{name}
+%make_install
 
 %check
 make check
@@ -74,8 +69,8 @@ make check
 %files
 %{_bindir}/classpol
 %{_bindir}/cm
+%{_bindir}/ecpp
 %{_datadir}/%{name}
-%{_datadir}/mf/*.gz
 
 %files -n %{libname}
 %{_libdir}/lib*.so.%{libmajor}*
