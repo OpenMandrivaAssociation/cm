@@ -12,6 +12,11 @@ URL:		https://www.multiprecision.org/%{name}
 Source0:	https://www.multiprecision.org/downloads/%{name}-%{version}.tar.gz
 #Patch0:		cm-0.2-link.patch
 Patch1:		cm-0.4.2-fix-tests.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gmp) >= 4.3.2
 BuildRequires:	pkgconfig(mpfr) >= 2.4.2
 BuildRequires:	libmpc-devel >= 0.8.2
