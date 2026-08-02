@@ -4,14 +4,14 @@
 
 Summary:	Ring class fields of imaginary quadratic number fields and of elliptic curves
 Name:		cm
-Version:	0.4.2
+Version:	0.4.4
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 URL:		https://www.multiprecision.org/%{name}
 Source0:	https://www.multiprecision.org/downloads/%{name}-%{version}.tar.gz
 #Patch0:		cm-0.2-link.patch
-Patch1:		cm-0.4.2-fix-tests.patch
+Patch1:		cm-0.4.4-fix-tests.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base

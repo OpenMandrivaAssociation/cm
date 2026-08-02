@@ -1,0 +1,11 @@
+diff -up cm-0.4.4/tests/tcm.c.omv~ cm-0.4.4/tests/tcm.c
+--- cm-0.4.4/tests/tcm.c.omv~	2023-05-17 17:28:29.000000000 +0200
++++ cm-0.4.4/tests/tcm.c	2026-08-02 16:11:11.163850142 +0200
+@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place - Suit
+ */
+ 
+ #include <string.h>
++#include <stdio.h>
+ #include "cm.h"
+ 
+ /*****************************************************************************/
